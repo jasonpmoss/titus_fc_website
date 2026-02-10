@@ -403,6 +403,10 @@
             btn.innerText = "Processing...";
             updateTotals();
 
+            // DEBUG: Check what is being sent
+            const debugTotal = document.getElementById('hidden-total').value;
+            alert("Debug Check: The Total value being sent is: " + debugTotal);
+
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     document.getElementById('merch-form').style.display = 'none';
