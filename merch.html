@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merch Store - TITUS Football Club</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -15,20 +17,23 @@
             gap: 20px;
             margin-bottom: 30px;
         }
+
         .merch-item {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             border: 1px solid #eee;
             transition: 0.3s;
         }
+
         .merch-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
             border-bottom: 4px solid var(--gold);
         }
+
         .price-tag {
             display: block;
             font-size: 1.5rem;
@@ -36,6 +41,7 @@
             font-family: 'Oswald', sans-serif;
             margin: 10px 0;
         }
+
         .form-control {
             width: 100%;
             padding: 10px;
@@ -43,6 +49,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         .order-summary {
             background: var(--navy);
             color: white;
@@ -50,15 +57,22 @@
             border-radius: 8px;
             margin-top: 30px;
         }
+
         .total-display {
             font-size: 2rem;
             color: var(--gold);
             font-family: 'Oswald', sans-serif;
         }
+
         /* Hide success message initially */
-        #success-message { display: none; text-align: center; padding: 40px; }
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
     </style>
 </head>
+
 <body>
 
     <nav>
@@ -82,7 +96,7 @@
 
     <section class="section-light" style="padding-top: 0;">
         <div class="container">
-            
+
             <div id="success-message">
                 <h2 class="text-navy">Order Received!</h2>
                 <p>Thank you. Please proceed with payment using the details below.</p>
@@ -91,7 +105,7 @@
             </div>
 
             <form id="merch-form" name="submit-to-google-sheet">
-                
+
                 <div style="background: white; padding: 25px; border-radius: 8px; margin-bottom: 30px;">
                     <h3 class="text-navy">1. Your Details</h3>
                     <div class="contact-flex" style="gap: 20px;">
@@ -103,7 +117,7 @@
 
                 <h3 class="text-navy">2. Select Items</h3>
                 <div class="merch-grid">
-                    
+
                     <div class="merch-item">
                         <i class="fa-solid fa-shirt fa-3x" style="color:var(--navy); margin-bottom:15px;"></i>
                         <h4>Official Tracksuit</h4>
@@ -172,14 +186,15 @@
                             <h3 style="margin-bottom: 15px;">Payment Details</h3>
                             <p><strong>Bank:</strong> FNB </p>
                             <p><strong>Account Name:</strong> Titus Football Club</p>
-                            <p><strong>Account Number:</strong> [Acc Number Placeholder]</p>
+                            <p><strong>Account Number:</strong> 63193435451</p>
                             <p><strong>Ref:</strong> Child's Name + Merch</p>
                         </div>
                         <div style="text-align: right; flex: 1; min-width: 300px;">
                             <h3>Total Estimated Cost</h3>
                             <div class="total-display">R<span id="grand-total">0</span></div>
                             <br>
-                            <button type="submit" class="btn-gold-full" id="submit-btn" style="max-width: 300px;">PLACE ORDER</button>
+                            <button type="submit" class="btn-gold-full" id="submit-btn" style="max-width: 300px;">PLACE
+                                ORDER</button>
                         </div>
                     </div>
                 </div>
@@ -214,7 +229,7 @@
                 if (qty > 0) {
                     const price = parseInt(select.dataset.price);
                     const name = select.dataset.name;
-                    
+
                     // Find the size input next to this select (if it exists)
                     const parentDiv = select.parentElement;
                     const sizeInput = parentDiv.querySelector('.item-size');
@@ -246,11 +261,11 @@
 
             updateTotals(); // Ensure latest values are captured
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     document.getElementById('merch-form').style.display = 'none';
                     document.getElementById('success-message').style.display = 'block';
-                    window.scrollTo(0,0);
+                    window.scrollTo(0, 0);
                 })
                 .catch(error => {
                     console.error('Error!', error.message);
@@ -262,4 +277,5 @@
     </script>
 
 </body>
+
 </html>
