@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/titusfa2x4v7/public_html/
-    - /bin/cp -R * $DEPLOYPATH
+    - /usr/bin/git --work-tree=$DEPLOYPATH checkout -f HEAD
