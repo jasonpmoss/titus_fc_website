@@ -200,7 +200,7 @@
                 </div>
 
                 <input type="hidden" name="Items Ordered" id="hidden-items">
-                <input type="hidden" name="Total Price" id="hidden-total">
+                <input type="hidden" name="Total" id="hidden-total">
                 <input type="hidden" name="Status" value="New">
 
             </form>
@@ -241,7 +241,7 @@
             });
 
             totalDisplay.innerText = total;
-            hiddenTotal.value = "R" + total;
+            hiddenTotal.value = total;
             hiddenItems.value = itemsSummary.join(", ");
         }
 
