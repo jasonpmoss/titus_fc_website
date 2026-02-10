@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         .merch-grid {
@@ -132,10 +132,36 @@
                     </div>
 
                     <div class="merch-item">
-                        <i class="fa-solid fa-futbol fa-3x" style="color:var(--red); margin-bottom:15px;"></i>
-                        <h4>Official Match Kit</h4>
+                        <i class="fa-solid fa-shirt fa-3x" style="color:var(--gold); margin-bottom:15px;"></i>
+                        <h4>Official Match Kit (Home)</h4>
                         <span class="price-tag">R310</span>
-                        <select class="form-control item-select" data-name="Match Kit" data-price="310">
+                        <select class="form-control item-select" data-name="Home Kit" data-price="310">
+                            <option value="0">Select Quantity</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type="text" class="form-control item-size" placeholder="Size (e.g., Age 12, M)">
+                    </div>
+
+                    <div class="merch-item">
+                        <i class="fa-solid fa-shirt fa-3x" style="color:var(--navy); margin-bottom:15px;"></i>
+                        <h4>Official Match Kit (Away)</h4>
+                        <span class="price-tag">R310</span>
+                        <select class="form-control item-select" data-name="Away Kit" data-price="310">
+                            <option value="0">Select Quantity</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type="text" class="form-control item-size" placeholder="Size (e.g., Age 12, M)">
+                    </div>
+
+                    <div class="merch-item">
+                        <i class="fa-solid fa-shirt fa-3x" style="color:grey; margin-bottom:15px;"></i>
+                        <h4>Training Kit</h4>
+                        <span class="price-tag">R310</span>
+                        <select class="form-control item-select" data-name="Training Kit" data-price="310">
                             <option value="0">Select Quantity</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -154,6 +180,9 @@
                             <option value="2">2</option>
                         </select>
                         <input type="text" class="form-control item-size" placeholder="Size (S, M, L, XL)">
+                        <input type="text" class="form-control item-custom-name" placeholder="Name on Back (Optional)">
+                        <input type="text" class="form-control item-custom-number"
+                            placeholder="Number on Back (Optional)">
                     </div>
 
                     <div class="merch-item">
@@ -230,13 +259,19 @@
                     const price = parseInt(select.dataset.price);
                     const name = select.dataset.name;
 
-                    // Find the size input next to this select (if it exists)
+                    // Find details
                     const parentDiv = select.parentElement;
                     const sizeInput = parentDiv.querySelector('.item-size');
-                    const size = sizeInput && sizeInput.value ? `(Size: ${sizeInput.value})` : '';
+                    const nameInput = parentDiv.querySelector('.item-custom-name');
+                    const numInput = parentDiv.querySelector('.item-custom-number');
+
+                    let detailStr = "";
+                    if (sizeInput && sizeInput.value) detailStr += ` (Size: ${sizeInput.value})`;
+                    if (nameInput && nameInput.value) detailStr += ` (Name: ${nameInput.value})`;
+                    if (numInput && numInput.value) detailStr += ` (Num: ${numInput.value})`;
 
                     total += (qty * price);
-                    itemsSummary.push(`${qty}x ${name} ${size}`);
+                    itemsSummary.push(`${qty}x ${name}${detailStr}`);
                 }
             });
 
@@ -247,7 +282,7 @@
 
         // Add event listeners to update total whenever user changes qty or types size
         selects.forEach(s => s.addEventListener('change', updateTotals));
-        document.querySelectorAll('.item-size').forEach(i => i.addEventListener('input', updateTotals));
+        document.querySelectorAll('.item-size, .item-custom-name, .item-custom-number').forEach(i => i.addEventListener('input', updateTotals));
 
         // 2. SUBMIT TO GOOGLE SHEETS
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxVUvWRDUD9SU6GbhRa7dfopzfoyCwK9_uqDiqDD5A1JklMlhQ4bXdg-NCaE7FDlFCkmQ/exec'; // <--- PASTE URL HERE
