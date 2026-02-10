@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITUS Football Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="register.html" class="btn-gold">Join Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="container hero-content">
+            <img src="logo.png" alt="Titus Academy Crest" class="hero-logo">
+
+            <h1>Forge the Future of <span class="text-gold">Football</span></h1>
+            <p>Professional coaching. Elite development. Building character on and off the field.</p>
+            <a href="#contact" class="btn-red">Book a Trial</a>
+        </div>
+    </header>
+
+    <section id="about" class="section-light">
+        <div class="container">
+            <h2>Why Choose <span class="text-navy">TITUS?</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Elite Training</h3>
+                    <p>Focused technical drills designed to improve ball control and game intelligence.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Character Building</h3>
+                    <p>We don't just build players; we build leaders through discipline and teamwork.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Pro Pathways</h3>
+                    <p>Guidance and exposure for talented players looking to take the next step.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-navy">
+        <div class="container contact-flex">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Ready to join the academy? Fill out the form or contact us directly.</p>
+                <br>
+                <p><strong>📍 Location:</strong> St Martin's School, 17 Dallas Avenue, The Hill, Johannesburg South </p>
+                <p><strong>📞 Phone/WhatsApp:</strong> +27 (78) 046-4649 </p>
+                <p><strong>📧 Email:</strong> info@titusacademy.co.za</p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form action="contact.php" method="POST">
+                    <label>Parent's Name</label>
+                    <input type="text" name="name" required placeholder="John Doe">
+
+                    <label>Email Address</label>
+                    <input type="email" name="email" required placeholder="john@example.com">
+
+                    <label>Phone Number (WhatsApp)</label>
+                    <input type="tel" name="phone" required placeholder="082 123 4567">
+
+                    <label>Player's Age & Details</label>
+                    <textarea name="message" rows="4"
+                        placeholder="My son is 12 years old and plays midfield..."></textarea>
+
+                    <button type="submit" class="btn-gold-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Titus Football Club. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="https://wa.me/27780464649?text=Hi%20Coach,%20I%20would%20like%20info%20about%20the%20academy"
+        class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp my-float"></i>
+    </a>
+
+</body>
+
+</html>

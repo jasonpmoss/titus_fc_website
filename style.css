@@ -1,0 +1,151 @@
+/* GENERAL RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; }
+
+/* BRAND COLORS */
+:root {
+    --navy: #0f1c3f; /* Dark Navy from shield */
+    --red: #a81c30;  /* Deep Red from shield ribbon */
+    --gold: #c5a059; /* Gold from wings */
+    --white: #ffffff;
+}
+
+/* LAYOUT */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section-light { padding: 60px 0; background: #f4f4f4; text-align: center; }
+.section-navy { padding: 60px 0; background: var(--navy); color: var(--white); }
+
+/* TYPOGRAPHY */
+h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+h1 { font-size: 3rem; margin-bottom: 20px; }
+h2 { font-size: 2.5rem; margin-bottom: 40px; }
+.text-gold { color: var(--gold); }
+.text-navy { color: var(--navy); }
+
+/* BUTTONS */
+.btn-red { display: inline-block; padding: 12px 30px; background: var(--red); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+.btn-gold { padding: 10px 20px; background: var(--gold); color: var(--navy); text-decoration: none; border-radius: 5px; font-weight: bold; }
+.btn-gold-full { width: 100%; padding: 15px; background: var(--gold); color: var(--navy); border: none; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 10px; }
+.btn-red:hover { background: #800e1f; }
+
+/* NAVIGATION - FIXED HERE */
+nav { 
+    background: var(--navy); 
+    padding: 15px 0; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
+    width: 100%; /* This fixes the "tiny blue box" issue */
+}
+
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { height: 60px; } 
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; }
+
+/* HERO SECTION */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(15, 28, 63, 0.8), rgba(15, 28, 63, 0.8)), url('https://images.unsplash.com/photo-1517466787929-bc90951d6dbd?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.hero-content { width: 100%; }
+
+/* LARGE HERO LOGO */
+.hero-logo {
+    width: 200px;
+    max-width: 80%;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* FADE IN ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* FEATURES GRID */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.feature-card { background: white; padding: 30px; border-bottom: 4px solid var(--red); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+/* CONTACT FORM */
+.contact-flex { display: flex; flex-wrap: wrap; gap: 50px; }
+.contact-info { flex: 1; min-width: 300px; }
+.contact-form-wrapper { flex: 1; min-width: 300px; background: white; padding: 30px; border-radius: 8px; color: #333; }
+input, textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+
+/* FOOTER */
+footer { background: #0a1229; color: #888; text-align: center; padding: 20px 0; }
+
+/* WHATSAPP FLOAT BUTTON */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Removes underline from link */
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+.my-float { margin-top: 2px; }
+
+
+/* MOBILE RESPONSIVE RULES */
+@media (max-width: 768px) {
+    /* Logo on mobile hero */
+    .hero-logo { width: 140px; margin-bottom: 20px; }
+
+    /* Stack the Logo and Menu vertically */
+    .nav-flex { flex-direction: column; padding-bottom: 10px; }
+
+    /* Show the links and center them */
+    .nav-links {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 15px; 
+        font-size: 0.9rem;
+    }
+    
+    /* Make the "Join Now" button adjust size */
+    .nav-links .btn-gold { padding: 8px 12px; }
+
+    /* Adjust headers */
+    h1 { font-size: 2rem; }
+    
+    /* Stack contact section */
+    .contact-flex { flex-direction: column; }
+    
+    /* Adjust WhatsApp button size */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
