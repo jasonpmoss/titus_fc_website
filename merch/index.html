@@ -400,12 +400,14 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.disabled = true;
-            btn.innerText = "Processing...";
+
             updateTotals();
 
-            // DEBUG: Check what is being sent
+            // DEBUG: Show Total in Button Text
             const debugTotal = document.getElementById('hidden-total').value;
-            alert("Debug Check: The Total value being sent is: " + debugTotal);
+            btn.innerText = "Sending Total: R" + debugTotal;
+
+            // alert("Debug Check: The Total value being sent is: " + debugTotal);
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
